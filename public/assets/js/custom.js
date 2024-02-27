@@ -16,26 +16,26 @@ $(function () {
     // This is for the top header part and sidebar part
     // ==============================================================
     var set = function () {
-            var width = (window.innerWidth > 0) ? window.innerWidth : this.screen.width;
-            var topOffset = 70;
-            if (width < 1170) {
-                $("body").addClass("mini-sidebar");
-                $('.navbar-brand span').hide();
-                $(".scroll-sidebar, .slimScrollDiv").css("overflow-x", "visible").parent().css("overflow", "visible");
-                $(".sidebartoggler i").addClass("ti-menu");
-            }
-            else {
-                $("body").removeClass("mini-sidebar");
-                $('.navbar-brand span').show();
-                //$(".sidebartoggler i").removeClass("ti-menu");
-            }
+        var width = (window.innerWidth > 0) ? window.innerWidth : this.screen.width;
+        var topOffset = 70;
+        if (width < 1170) {
+            $("body").addClass("mini-sidebar");
+            $('.navbar-brand span').hide();
+            $(".scroll-sidebar, .slimScrollDiv").css("overflow-x", "visible").parent().css("overflow", "visible");
+            $(".sidebartoggler i").addClass("ti-menu");
+        }
+        else {
+            $("body").removeClass("mini-sidebar");
+            $('.navbar-brand span').show();
+            //$(".sidebartoggler i").removeClass("ti-menu");
+        }
 
-            var height = ((window.innerHeight > 0) ? window.innerHeight : this.screen.height) - 1;
-            height = height - topOffset;
-            if (height < 1) height = 1;
-            if (height > topOffset) {
-                $(".page-wrapper").css("min-height", (height) + "px");
-            }
+        var height = ((window.innerHeight > 0) ? window.innerHeight : this.screen.height) - 1;
+        height = height - topOffset;
+        if (height < 1) height = 1;
+        if (height > topOffset) {
+            $(".page-wrapper").css("min-height", (height) + "px");
+        }
 
     };
     $(window).ready(set);
@@ -89,33 +89,33 @@ $(function () {
     // ==============================================================
     // Auto select left navbar
     // ==============================================================
-    $(function () {
-        var url = window.location;
-        var element = $('ul#sidebarnav a').filter(function () {
-            return this.href == url;
-        }).addClass('active').parent().addClass('active');
-        while (true) {
-            if (element.is('li')) {
-                element = element.parent().addClass('in').parent().addClass('active');
-            }
-            else {
-                break;
-            }
-        }
+    // $(function () {
+    //     var url = window.location;
+    //     var element = $('ul#sidebarnav a').filter(function () {
+    //         return this.href == url;
+    //     }).addClass('active').parent().addClass('active');
+    //     while (true) {
+    //         if (element.is('li')) {
+    //             element = element.parent().addClass('in').parent().addClass('active');
+    //         }
+    //         else {
+    //             break;
+    //         }
+    //     }
 
-    });
+    // });
     // ==============================================================
     //tooltip
     // ==============================================================
     $(function () {
-            $('[data-toggle="tooltip"]').tooltip()
-     })
+        $('[data-toggle="tooltip"]').tooltip()
+    })
     // ==============================================================
     //Popover
     // ==============================================================
     $(function () {
-            $('[data-toggle="popover"]').popover()
-        })
+        $('[data-toggle="popover"]').popover()
+    })
     // ==============================================================
     // Sidebarmenu
     // ==============================================================
@@ -131,13 +131,13 @@ $(function () {
         , size: "5px"
         , height: '100%'
         , color: '#dcdcdc'
-     });
+    });
     $('.message-center').slimScroll({
         position: 'right'
         , size: "5px"
 
         , color: '#dcdcdc'
-     });
+    });
 
 
     $('.aboutscroll').slimScroll({
@@ -145,26 +145,26 @@ $(function () {
         , size: "5px"
         , height: '80'
         , color: '#dcdcdc'
-     });
+    });
     $('.message-scroll').slimScroll({
         position: 'right'
         , size: "5px"
         , height: '570'
         , color: '#dcdcdc'
-     });
+    });
     $('.chat-box').slimScroll({
         position: 'right'
         , size: "5px"
         , height: '470'
         , color: '#dcdcdc'
-     });
+    });
 
     $('.slimscrollright').slimScroll({
         height: '100%'
         , position: 'right'
         , size: "5px"
         , color: '#dcdcdc'
-     });
+    });
 
     // ==============================================================
     // Resize all elements
@@ -188,31 +188,31 @@ $(function () {
     // ==============================================================
     // Collapsable cards
     // ==============================================================
-        $('a[data-action="collapse"]').on('click',function(e){
-            e.preventDefault();
-            $(this).closest('.card').find('[data-action="collapse"] i').toggleClass('ti-minus ti-plus');
-            $(this).closest('.card').children('.card-body').collapse('toggle');
+    $('a[data-action="collapse"]').on('click', function (e) {
+        e.preventDefault();
+        $(this).closest('.card').find('[data-action="collapse"] i').toggleClass('ti-minus ti-plus');
+        $(this).closest('.card').children('.card-body').collapse('toggle');
 
-        });
-        // Toggle fullscreen
-        $('a[data-action="expand"]').on('click',function(e){
-            e.preventDefault();
-            $(this).closest('.card').find('[data-action="expand"] i').toggleClass('mdi-arrow-expand mdi-arrow-compress');
-            $(this).closest('.card').toggleClass('card-fullscreen');
-        });
+    });
+    // Toggle fullscreen
+    $('a[data-action="expand"]').on('click', function (e) {
+        e.preventDefault();
+        $(this).closest('.card').find('[data-action="expand"] i').toggleClass('mdi-arrow-expand mdi-arrow-compress');
+        $(this).closest('.card').toggleClass('card-fullscreen');
+    });
 
-        // Close Card
-        $('a[data-action="close"]').on('click',function(){
-            $(this).closest('.card').removeClass().slideUp('fast');
-        });
+    // Close Card
+    $('a[data-action="close"]').on('click', function () {
+        $(this).closest('.card').removeClass().slideUp('fast');
+    });
 
-        // For Custom File Input
-  $('.custom-file-input').on('change',function(){
-      //get the file name
-      var fileName = $(this).val();
-      //replace the "Choose a file" label
-      $(this).next('.custom-file-label').html(fileName);
-  })
+    // For Custom File Input
+    $('.custom-file-input').on('change', function () {
+        //get the file name
+        var fileName = $(this).val();
+        //replace the "Choose a file" label
+        $(this).next('.custom-file-label').html(fileName);
+    })
 
 
 });
